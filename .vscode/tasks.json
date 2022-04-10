@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Execute",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/game_exe",
+            "options": {
+                "cwd": "${workspaceFolder}/bin"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
