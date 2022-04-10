@@ -16,37 +16,37 @@ public:
 
     static std::ostream& Trace()
     {
-        return (the().m_level >= TRACE ? std::cout : the().m_nullStream);
+        return (the().m_level <= TRACE ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Debug()
     {
-        return (the().m_level >= DEBUG ? std::cout : the().m_nullStream);
+        return (the().m_level <= DEBUG ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Verbose()
     {
-        return (the().m_level >= VERBOSE ? std::cout : the().m_nullStream);
+        return (the().m_level <= VERBOSE ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Info()
     {
-        return (the().m_level >= INFO ? std::cout : the().m_nullStream);
+        return (the().m_level <= INFO ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Warning()
     {
-        return (the().m_level >= WARNING ? std::cout : the().m_nullStream);
+        return (the().m_level <= WARNING ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Error()
     {
-        return (the().m_level >= ERROR ? std::cout : the().m_nullStream);
+        return (the().m_level <= ERROR ? std::cout : the().m_nullStream);
     }
 
     static std::ostream& Fatal()
     {
-        return (the().m_level >= FATAL ? std::cout : the().m_nullStream);
+        return (the().m_level <= FATAL ? std::cout : the().m_nullStream);
     }
 
 private:
