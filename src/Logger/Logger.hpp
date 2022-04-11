@@ -14,37 +14,37 @@ public:
         FATAL,
     };
 
-    static std::ostream& Trace()
+    static std::ostream& trace()
     {
         return (the().m_level <= TRACE ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Debug()
+    static std::ostream& debug()
     {
         return (the().m_level <= DEBUG ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Verbose()
+    static std::ostream& verbose()
     {
         return (the().m_level <= VERBOSE ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Info()
+    static std::ostream& info()
     {
         return (the().m_level <= INFO ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Warning()
+    static std::ostream& warning()
     {
         return (the().m_level <= WARNING ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Error()
+    static std::ostream& error()
     {
         return (the().m_level <= ERROR ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& Fatal()
+    static std::ostream& fatal()
     {
         return (the().m_level <= FATAL ? std::cout : the().m_nullStream);
     }

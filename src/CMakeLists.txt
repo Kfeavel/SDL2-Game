@@ -15,3 +15,9 @@ target_link_libraries(game_exe
     ${SDL2_LIBRARIES}
     ${SDL2_IMAGE_LIBRARIES}
 )
+
+add_custom_target(copy_assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/assets" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/assets"
+)
+
+add_dependencies(game_exe copy_assets)
