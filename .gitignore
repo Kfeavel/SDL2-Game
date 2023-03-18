@@ -11,3 +11,4 @@ CTestTestfile.cmake
 _deps
 Build
 bin
+.DS_Store
