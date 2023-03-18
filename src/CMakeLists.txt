@@ -14,9 +14,11 @@ target_compile_options(game_exe PRIVATE
     -Wpedantic
 )
 
-target_link_libraries(game_exe
-    ${SDL2_LIBRARIES}
-    ${SDL2_IMAGE_LIBRARIES}
+target_link_libraries(game_exe PUBLIC
+    SDL2::SDL2
+    SDL2_image::SDL2_image
+    SDL2_mixer::SDL2_mixer
+    SDL2_ttf::SDL2_ttf
 )
 
 copy_directory(game_exe ${GAME_ASSET_DIR} ${GAME_BIN_DIR})
