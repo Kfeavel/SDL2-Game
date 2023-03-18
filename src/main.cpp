@@ -3,6 +3,9 @@
 #include <filesystem>
 #include <cstdlib>
 #include <SDL.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 800
@@ -10,6 +13,17 @@
 static SDL_Window* gWindow = nullptr;
 static SDL_Surface* gScreenSurface = nullptr;
 static SDL_Surface* gHelloWorld = nullptr;
+
+static void PrintArguments(const unsigned int argc, char* const argv[])
+{
+    Logger::debug() << "argv:" << std::endl;
+    for (size_t i = 0; i < argc; i++) {
+        Logger::debug() << Logger::tab
+                        << "[" << i << "]"
+                        << " \"" << argv[i] << "\""
+                        << std::endl;
+    }
+}
 
 static bool Initialize()
 {
@@ -86,11 +100,10 @@ static void Destroy(SDL_Event& e)
 
 int main(int argc, char* argv[])
 {
-    (void)argc;
-    (void)argv;
-
-    Logger::info() << "cwd: " << std::filesystem::current_path() << std::endl;
-    Logger::info() << SDL_GetBasePath() << std::endl;
+    Logger::setLevel(Logger::DEBUG);
+    Logger::debug() << "cwd: " << std::filesystem::current_path() << std::endl;
+    Logger::debug() << "basepath: " << SDL_GetBasePath() << std::endl;
+    PrintArguments(argc, argv);
 
     if (Initialize()) {
         if (LoadAssets()) {

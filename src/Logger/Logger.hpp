@@ -14,39 +14,51 @@ public:
         FATAL,
     };
 
-    static std::ostream& trace()
+    static inline std::ostream& tab(std::ostream& os)
+    {
+        os.put(os.widen('\t'));
+        os.flush();
+        return os;
+    }
+
+    static inline std::ostream& trace()
     {
         return (the().m_level <= TRACE ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& debug()
+    static inline std::ostream& debug()
     {
         return (the().m_level <= DEBUG ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& verbose()
+    static inline std::ostream& verbose()
     {
         return (the().m_level <= VERBOSE ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& info()
+    static inline std::ostream& info()
     {
         return (the().m_level <= INFO ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& warning()
+    static inline std::ostream& warning()
     {
         return (the().m_level <= WARNING ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& error()
+    static inline std::ostream& error()
     {
         return (the().m_level <= ERROR ? std::cout : the().m_nullStream);
     }
 
-    static std::ostream& fatal()
+    static inline std::ostream& fatal()
     {
         return (the().m_level <= FATAL ? std::cout : the().m_nullStream);
+    }
+
+    static inline void setLevel(Level level)
+    {
+        the().m_level = level;
     }
 
 private:
@@ -75,7 +87,7 @@ private:
     Logger(const Logger&) = delete;
     Logger& operator=(const Logger&) = delete;
 
-    static Logger& the()
+    static inline Logger& the()
     {
         static Logger logger;
         return logger;
