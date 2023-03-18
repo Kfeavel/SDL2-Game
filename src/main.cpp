@@ -38,7 +38,7 @@ static bool Initialize()
 
 static bool LoadAssets()
 {
-    gHelloWorld = SDL_LoadBMP("assets/img/hello_world.bmp");
+    gHelloWorld = SDL_LoadBMP("img/hello_world.bmp");
     if (gHelloWorld == nullptr) {
         Logger::fatal() << SDL_GetError() << std::endl;
         return false;
